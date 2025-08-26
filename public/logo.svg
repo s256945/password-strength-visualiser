@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle for softness -->
+  <circle cx="32" cy="32" r="30" fill="#FDF2F8" stroke="#F9A8D4" stroke-width="2"></circle>
+  
+  <!-- Rounded pastel-pink lock body -->
+  <rect x="20" y="28" width="24" height="22" rx="6" ry="6" fill="#F9A8D4" stroke="#D946EF" stroke-width="2"></rect>
+  
+  <!-- Rounded shackle (lavender) -->
+  <path d="M24 28v-5a8 8 0 0 1 16 0v5" stroke="#A855F7" stroke-width="3" fill="none" stroke-linecap="round"></path>
+  
+  <!-- Heart keyhole -->
+  <path d="M32 38c-2-2.4-6-1.4-6 1.8 0 2.4 3 4 6 6 3-2 6-3.6 6-6 0-3.2-4-4.2-6-1.8z" fill="#EC4899"></path>
+  
+  <!-- Sparkles -->
+  <path d="M12 20l2-4 2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#FDE68A"></path>
+  <path d="M50 16l1.5-3 1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#FDE68A"></path>
+  <path d="M48 48l1-2 1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#FDE68A"></path>
+</svg>

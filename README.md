@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/logo.svg" alt="Cute Lock Logo" width="150"/>
+</p>
+
 # 🔑 Password Strength Visualiser
 
 A simple React app that analyses and visualises the strength of a password in real-time.  
