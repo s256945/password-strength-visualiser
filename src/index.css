@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bg-gray-200 { background: #e5e7eb; }
+.bg-gray-300 { background: #d1d5db; }
+.bg-red-600 { background: #dc2626; }
+.bg-orange-500 { background: #f97316; }
+.bg-yellow-500 { background: #eab308; }
+.bg-green-600 { background: #16a34a; }
+.bg-emerald-600 { background: #059669; }
+.rounded-full { border-radius: 9999px; }
