@@ -93,96 +93,71 @@ const PasswordStrength = () => {
   }, [res]);
 
   return (
-    <div style={{ maxWidth: "500px", margin: "2rem auto", padding: "1rem" }}>
-      {/* Password input */}
-      <label style={{ display: "block", fontSize: "14px", fontWeight: "500" }}>
-        Password
-      </label>
-      <input
-        type="password"
-        value={pwd}
-        onChange={(e) => setPwd(e.target.value)}
-        style={{
-          width: "100%",
-          border: "1px solid #ccc",
-          borderRadius: "8px",
-          padding: "10px",
-          marginTop: "4px",
-        }}
-        placeholder="Type to analyse…"
-      />
+    <div className="psv-shell">
+      <h1 className="psv-title">
+        <span className="sparkle">✨</span>
+        Password Strength Visualiser
+        <span className="sparkle">✨</span>
+      </h1>
+      <div className="psv-input">
+        <label>Password</label>
+        <input
+          type="password"
+          value={pwd}
+          onChange={(e) => setPwd(e.target.value)}
+          placeholder="Type to analyse…"
+        />
+      </div>
       {/* Strength bar */}
-      <div
-        style={{
-          marginTop: "12px",
-          height: "12px",
-          width: "100%",
-          background: "#e5e7eb",
-          borderRadius: "9999px",
-          overflow: "hidden",
-        }}
-      >
+      <div className="psv-bar" aria-hidden>
         <div
+          className="psv-bar-fill"
           style={{
-            height: "100%",
-            width: `${meter.pct}%`, // bar width
-            background: meter.color, // bar colour depends on strength
-            transition: "width 0.3s ease",
+            width: `${meter.pct}%`,
+            background:
+              res?.label === "Very strong"
+                ? "linear-gradient(90deg,#fbcfe8,#a7f3d0)"
+                : res?.label === "Strong"
+                ? "linear-gradient(90deg,#f9a8d4,#86efac)"
+                : res?.label === "Fair"
+                ? "linear-gradient(90deg,#f9a8d4,#fde68a)"
+                : res?.label === "Weak"
+                ? "linear-gradient(90deg,#fda4af,#f9a8d4)"
+                : "linear-gradient(90deg,#fecdd3,#fda4af)",
           }}
         />
       </div>
-      {/* Results */}
       {res ? (
-        <div style={{ fontSize: "14px", marginTop: "10px" }}>
-          {/* Label and entropy */}
-          <div style={{ fontWeight: "500" }}>
+        <>
+          <div className="psv-meta">
             {res.label} · {res.entropy} bits
           </div>
-          {/* Findings list */}
-          {!!res.findings.length && (
-            <div style={{ marginTop: "8px" }}>
-              <div
-                style={{
-                  fontSize: "12px",
-                  color: "#555",
-                  textTransform: "uppercase",
-                }}
-              >
-                Findings
-              </div>
-              <ul>
-                {res.findings.map((f, i) => (
-                  <li key={i}>
-                    {f.type}: <code>{f.detail}</code>
-                  </li>
-                ))}
-              </ul>
+
+          <div className="psv-sub">FINDINGS</div>
+          {res.findings.length ? (
+            <div className="psv-findings">
+              {res.findings.map((f, i) => (
+                <span className="psv-pill" key={i}>
+                  🔎 {f.type}: <code style={{ marginLeft: 4 }}>{f.detail}</code>
+                </span>
+              ))}
             </div>
+          ) : (
+            <div className="psv-note">No obvious patterns found. Nice!</div>
           )}
-          {/* Advice list */}
-          {!!res.advice.length && (
-            <div style={{ marginTop: "8px" }}>
-              <div
-                style={{
-                  fontSize: "12px",
-                  color: "#555",
-                  textTransform: "uppercase",
-                }}
-              >
-                Advice
-              </div>
-              <ul>
-                {res.advice.map((a, i) => (
-                  <li key={i}>{a}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+          <div className="psv-sub">ADVICE</div>
+          <ul className="psv-advice">
+            {res.advice.length ? (
+              res.advice.map((a, i) => <li key={i}>{a}</li>)
+            ) : (
+              <li>
+                Looks good! Consider a long passphrase with uncommon words.
+              </li>
+            )}
+          </ul>
+        </>
       ) : (
-        <div style={{ color: "#666", fontSize: "14px", marginTop: "8px" }}>
-          Start typing to see analysis.
-        </div>
+        <div className="psv-note">Start typing to see analysis.</div>
       )}
     </div>
   );
