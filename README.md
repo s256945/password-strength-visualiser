@@ -5,8 +5,7 @@
 # 🔑 Password Strength Visualiser
 
 A simple React app that analyses and visualises the strength of a password in real-time.  
-It uses [Dropbox’s zxcvbn](https://github.com/dropbox/zxcvbn) library for entropy estimates,  
-with some extra checks (like keyboard sequences) and a friendly visual bar.
+It uses [Dropbox’s zxcvbn](https://github.com/dropbox/zxcvbn) library for entropy estimates, with some extra checks (like keyboard sequences) and a friendly visual bar.
 
 ---
 
